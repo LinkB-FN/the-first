@@ -1,0 +1,35 @@
+.otros-page {
+  padding: 2rem;
+  background-color: #ffffff;
+  color: #fff;
+  min-height: 80vh;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #0956e5; /* Color primario de la marca, similar a Netflix */
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.otros-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .otros-page {
+    padding: 1rem;
+  }
+
+  .otros-container {
+    gap: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

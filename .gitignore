@@ -1,0 +1,25 @@
+# Dependencias
+/node_modules
+
+# Archivos de build y artefactos
+/dist
+/build
+
+# Archivos de logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos de entorno
+.env
+.env.local
+.env.*.local
+
+# Carpetas de IDE y editores
+.idea/
+.vscode/
+
+# Archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db

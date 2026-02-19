@@ -1,0 +1,39 @@
+.cartelera-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.movies-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+@media (max-width: 768px) {
+  .cartelera-page {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

@@ -1,0 +1,15 @@
+.detalle-page {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.detalle-page h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.detalle-page p {
+  font-size: 1.2rem;
+  color: #666;
+}

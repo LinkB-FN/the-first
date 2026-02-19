@@ -1,0 +1,45 @@
+.alimentos-page {
+  padding: 2rem;
+  background-color: #ffffff; /* Fondo oscuro para la página */
+  color: #fff;
+}
+
+.food-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #1850c7; /* Color primario de la marca, similar a Netflix */
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .alimentos-page {
+    padding: 1rem;
+  }
+
+  .food-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-grid {
+    grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+  }
+}
