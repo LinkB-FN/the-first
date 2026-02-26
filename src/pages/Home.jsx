@@ -1,15 +1,29 @@
-import './Home.css'
-import MovieCard from '../components/MovieCard'
+import MovieCard from "../components/MovieCard";
+import peliculas from "../detalles.js"; 
 
-function Home({cambiarVista}) {
+function Home({ verDetalle }) {
+  
   return (
-    <div className="home-page">
-      <h2>Bienvenido a FortFlix</h2>
-      <p>Página de inicio - Próximamente</p>
-      <MovieCard 
-      title="Smash" genre="Drama, Historia" duration="180 min" rating="⭐ 8.8" image="" onVerDetalle={() => cambiarVista("detalle")}/>
-    </div>
-  )
+    <main
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+        gap: "16px",
+        padding: "16px"
+      }}
+    >
+      {peliculas.filter(p => p.enCartelera).map((pelicula) => (
+        <MovieCard
+          key={pelicula.id}
+          title={pelicula.titulo}
+          image={pelicula.imagen}
+          onVerDetalle={() => verDetalle(pelicula)}
+        />
+      ))}
+    </main>
+  );
 }
 
-export default Home
+export default Home;

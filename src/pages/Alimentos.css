@@ -1,7 +1,67 @@
 .alimentos-page {
   padding: 2rem;
-  background-color: #ffffff; /* Fondo oscuro para la página */
+  background-color: #ffffff;
   color: #fff;
+}
+
+/* Resumen del carrito */
+.carrito-resumen {
+  background: linear-gradient(135deg, #f0fff4, #e6ffed);
+  border: 2px solid #4CAF50;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.carrito-titulo {
+  font-size: 1.3rem;
+  color: #2e7d32;
+  margin: 0 0 1rem 0;
+}
+
+.carrito-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.carrito-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #c8e6c9;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.carrito-nombre {
+  flex: 1;
+  font-weight: 500;
+}
+
+.carrito-cantidad {
+  background: #4CAF50;
+  color: white;
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 0.8rem;
+  margin: 0 12px;
+}
+
+.carrito-subtotal {
+  font-weight: bold;
+  color: #2e7d32;
+  min-width: 70px;
+  text-align: right;
+}
+
+.carrito-total {
+  text-align: right;
+  font-size: 1.1rem;
+  color: #1b5e20;
+  padding-top: 0.5rem;
+  border-top: 2px solid #4CAF50;
 }
 
 .food-section {

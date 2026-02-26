@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FoodCard from '../components/FoodCard';
 import './Alimentos.css';
-// Asumimos que las imágenes se agregarán en el futuro.
-// import palomitasImg from '../assets/image/palomitas.png';
 
 function Alimentos() {
+  // Estado del carrito de alimentos
+  const [carrito, setCarrito] = useState([])
+
   const foodItems = {
     bebidas: [
       { id: 'b1', name: 'Refresco Grande', description: 'Refresco de tu sabor favorito.', price: '$55.00', category: 'Bebida', image: '' },
@@ -29,8 +30,50 @@ function Alimentos() {
     'Dulces y Snacks': foodItems.dulces,
   };
 
+  // Agrega un item al carrito o incrementa su cantidad (onClick via onAgregar)
+  function agregarAlCarrito(item) {
+    setCarrito(prev => {
+      const existe = prev.find(i => i.id === item.id)
+      if (existe) {
+        return prev.map(i =>
+          i.id === item.id ? { ...i, cantidad: i.cantidad + 1 } : i
+        )
+      }
+      return [...prev, { ...item, cantidad: 1 }]
+    })
+  }
+
+  // Calcula el total del carrito
+  const totalItems = carrito.reduce((acc, i) => acc + i.cantidad, 0)
+  const totalPrecio = carrito.reduce((acc, i) => {
+    const precio = parseFloat(i.price.replace('$', ''))
+    return acc + precio * i.cantidad
+  }, 0)
+
   return (
     <div className="alimentos-page">
+
+      {/* Resumen del carrito: se muestra cuando hay al menos un item */}
+      {carrito.length > 0 && (
+        <section className="carrito-resumen">
+          <h2 className="carrito-titulo">🛒 Mi Pedido ({totalItems} artículo{totalItems !== 1 ? 's' : ''})</h2>
+          <ul className="carrito-lista">
+            {carrito.map(item => (
+              <li key={item.id} className="carrito-item">
+                <span className="carrito-nombre">{item.name}</span>
+                <span className="carrito-cantidad">x{item.cantidad}</span>
+                <span className="carrito-subtotal">
+                  ${(parseFloat(item.price.replace('$', '')) * item.cantidad).toFixed(2)}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <div className="carrito-total">
+            Total: <strong>${totalPrecio.toFixed(2)}</strong>
+          </div>
+        </section>
+      )}
+
       {Object.entries(categories).map(([categoryName, items]) => (
         <section className="food-section" key={categoryName}>
           <h2 className="section-title">{categoryName}</h2>
@@ -43,6 +86,7 @@ function Alimentos() {
                 price={item.price}
                 category={item.category}
                 image={item.image}
+                onAgregar={() => agregarAlCarrito(item)}
               />
             ))}
           </div>

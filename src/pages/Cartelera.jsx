@@ -1,77 +1,70 @@
-import MovieCard from '../components/MovieCard'
-import Button from '../components/Button'
-import './Cartelera.css'
-import devImage from '../assets/image/Dev.png'
-import imageImage from '../assets/image/image.png'
+import { useState } from "react"
+import MovieCard from "../components/MovieCard"
+import peliculas from "../detalles.js";
+import './Cartelera.css';
 
-function Cartelera({ cambiarVista }) {
-  // Datos de ejemplo de películas
-  const movies = [
-    {
-      id: 1,
-      title: "gyaaat",
-      genre: "Ciencia Ficcion, Aventura",
-      duration: "166 min",
-      rating: "⭐ 8.5",
-      image: devImage
-    },
-    {
-      id: 2,
-      title: "Smash",
-      genre: "Drama, Historia",
-      duration: "180 min",
-      rating: "⭐ 8.8",
-      image: imageImage
-    },
-    {
-      id: 3,
-      title: "Fortnite",
-      genre: "Comedia, Fantasía",
-      duration: "114 min",
-      rating: "⭐ 7.9"
-    },
-    {
-      id: 4,
-      title: "Send me 30k",
-      genre: "Acción, Aventura",
-      duration: "150 min",
-      rating: "⭐ 8.2"
-    },
-    {
-      id: 5,
-      title: "67 minutos",
-      genre: "Animación, Acción",
-      duration: "140 min",
-      rating: "⭐ 8.9"
-    },
-    {
-      id: 6,
-      title: "The Skibidi",
-      genre: "Acción, Crimen",
-      duration: "176 min",
-      rating: "⭐ 8.3"
-    }
-  ]
+function Cartelera({ verDetalle }) {
+
+  // Estado para guardar los IDs de películas favoritas
+  const [favoritos, setFavoritos] = useState([])
+
+  // Filtramos las películas que están en cartelera
+  const peliculasCartelera = peliculas.filter(p => p.enCartelera);
+
+  // Películas marcadas como favoritas
+  const peliculasFavoritas = peliculasCartelera.filter(p => favoritos.includes(p.id));
+
+  // Función para agregar o quitar de favoritos (onClick)
+  function toggleFavorito(id) {
+    setFavoritos(prev =>
+      prev.includes(id)
+        ? prev.filter(f => f !== id)   // quitar si ya existe
+        : [...prev, id]                 // agregar si no existe
+    )
+  }
 
   return (
-    <div className="cartelera-page">
-      <section className="movies-section">
-        <h2 className="section-title">Cartelera Actual</h2>
-        <div className="movies-grid">
-          {movies.map(movie => (
-            <MovieCard
-              key={movie.id}
-              title={movie.title}
-              genre={movie.genre}
-              duration={movie.duration}
-              rating={movie.rating}
-              image={movie.image}
-              onVerDetalle={() => cambiarVista('detalle')}
-            />
-          ))}
-        </div>
-      </section>
-    </div>
+    <main style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px" }}>
+
+      {/* Sección de favoritos: se muestra solo cuando hay al menos uno */}
+      {peliculasFavoritas.length > 0 && (
+        <section className="favoritos-section">
+          <h2 className="favoritos-titulo">❤️ Mis Favoritas ({peliculasFavoritas.length})</h2>
+          <div className="favoritos-lista">
+            {peliculasFavoritas.map(p => (
+              <span key={p.id} className="favorito-tag">
+                {p.titulo}
+              </span>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <h2 className="section-title">Cartelera</h2>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+          gap: "16px"
+        }}
+      >
+        {peliculasCartelera.map((pelicula) => (
+          <MovieCard
+            key={pelicula.id}
+            title={pelicula.titulo}
+            image={pelicula.imagen}
+            genre={pelicula.genero}
+            duration={pelicula.duracion}
+            rating={pelicula.calificacion}
+            description={pelicula.descripcion}
+            esFavorito={favoritos.includes(pelicula.id)}
+            onToggleFavorito={() => toggleFavorito(pelicula.id)}
+            onVerDetalle={() => verDetalle(pelicula)}
+          />
+        ))}
+      </div>
+    </main>
   )
 }
 
