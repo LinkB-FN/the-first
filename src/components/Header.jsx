@@ -1,16 +1,17 @@
-import './Header.css'
+import { Link, NavLink } from 'react-router-dom';
+import './Header.css';
 
-function Header({ cambiarVista }) {
+function Header() {
   return (
     <header className="header">
       <div className="header-container">
-        <h1 className="header-title" onClick={() => cambiarVista('cartelera')} style={{ cursor: 'pointer' }}>
-          F FortFlix
-        </h1>
+        <Link to="/" className="header-title-link">
+          <h1 className="header-title">F FortFlix</h1>
+        </Link>
         <nav className="header-nav">
-          <a onClick={() => cambiarVista('cartelera')} className="nav-link">Cartelera</a>
-          <a onClick={() => cambiarVista('alimentos')} className="nav-link">Alimentos</a>
-          <a onClick={() => cambiarVista('otros')} className="nav-link">Otros</a>
+          <NavLink to="/cartelera" className="nav-link">Cartelera</NavLink>
+          <NavLink to="/alimentos" className="nav-link">Alimentos</NavLink>
+          <NavLink to="/otros" className="nav-link">Otros</NavLink>
         </nav>
       </div>
     </header>

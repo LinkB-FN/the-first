@@ -3,7 +3,7 @@ import MovieCard from "../components/MovieCard"
 import peliculas from "../detalles.js";
 import './Cartelera.css';
 
-function Cartelera({ verDetalle }) {
+function Cartelera() {
 
   // Estado para guardar los IDs de películas favoritas
   const [favoritos, setFavoritos] = useState([])
@@ -52,6 +52,7 @@ function Cartelera({ verDetalle }) {
         {peliculasCartelera.map((pelicula) => (
           <MovieCard
             key={pelicula.id}
+            id={pelicula.id}
             title={pelicula.titulo}
             image={pelicula.imagen}
             genre={pelicula.genero}
@@ -60,7 +61,6 @@ function Cartelera({ verDetalle }) {
             description={pelicula.descripcion}
             esFavorito={favoritos.includes(pelicula.id)}
             onToggleFavorito={() => toggleFavorito(pelicula.id)}
-            onVerDetalle={() => verDetalle(pelicula)}
           />
         ))}
       </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Cartelera from './pages/Cartelera';
@@ -6,45 +6,32 @@ import Home from './pages/Home';
 import Detalle from './pages/Detalle';
 import Alimentos from './pages/Alimentos';
 import Otros from './pages/Otros';
+import Footer from './components/Footer';
+import Politicas from './pages/Politicas';
+import Contacto from './pages/Contacto';
+import Terminos from './pages/Terminos';
 
 function App() {
-  // Se declara un estado que controla qué vista se muestra
-  const [vistaActual, setVistaActual] = useState("home")
-
-  // Aquí nos permite guardar alguna película seleccionada
-  const [peliculaSeleccionada, setPeliculaSeleccionada] = useState(null)
-
-  // Función para ir a detalle enviando datos
-  function verDetalle(pelicula) {
-    setPeliculaSeleccionada(pelicula)
-    setVistaActual("detalle")
-  }
-
   return (
-    <div style={{ minHeight: "100vh" }}>
-      {/* Header controla navegación principal */}
-      <Header cambiarVista={setVistaActual} />
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <Header />
 
-      {/* Renderizado condicional, el triple "=" es para asegurar que solo se cumpla la condición si es exactamente igual */}
-      {vistaActual === "home" && (
-        <Home verDetalle={verDetalle} />
-      )}
+      <main style={{ flex: 1 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cartelera" element={<Cartelera />} />
+          <Route path="/alimentos" element={<Alimentos />} />
+          <Route path="/otros" element={<Otros />} />
+          {/* Ruta dinámica para detalles de películas */}
+          <Route path="/pelicula/:id" element={<Detalle />} />
 
-      {vistaActual === "cartelera" && (
-        <Cartelera verDetalle={verDetalle} />
-      )}
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/politicas" element={<Politicas />} />
+          <Route path="/terminos" element={<Terminos />} />
+        </Routes>
+      </main>
 
-      {vistaActual === "detalle" && (
-        <Detalle pelicula={peliculaSeleccionada} />
-      )}
-
-      {vistaActual === "alimentos" && (
-        <Alimentos />
-      )}
-
-      {vistaActual === "otros" && (
-        <Otros />
-      )}
+      <Footer />
     </div>
   )
 }

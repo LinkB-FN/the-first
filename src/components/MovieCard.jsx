@@ -1,11 +1,13 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Button from './Button'
 import './MovieCard.css'
 
 // Horarios de ejemplo compartidos para todas las películas
 const HORARIOS_DISPONIBLES = ['12:00', '14:30', '17:00', '19:30', '22:00']
 
-function MovieCard({ title, genre, duration, rating, image, description, onVerDetalle, esFavorito, onToggleFavorito }) {
+function MovieCard({ id, title, genre, duration, rating, image, description, esFavorito, onToggleFavorito }) {
+  const navigate = useNavigate()
   // Estado para mostrar u ocultar la descripción de la película
   const [mostrarDescripcion, setMostrarDescripcion] = useState(false)
 
@@ -91,7 +93,7 @@ function MovieCard({ title, genre, duration, rating, image, description, onVerDe
               setHorarioElegido(null)
             }}
           />
-          <Button text="Más Info" variant="secondary" onClick={onVerDetalle} />
+          <Button text="Más Info" variant="secondary" onClick={() => navigate(`/pelicula/${id}`)} />
         </div>
       </div>
     </div>

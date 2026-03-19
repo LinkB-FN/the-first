@@ -43,9 +43,10 @@
   transition: opacity 0.3s;
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link.active {
   opacity: 0.8;
   cursor: pointer;
+  border-bottom: 2px solid white;
 }
 
 @media (max-width: 768px) {

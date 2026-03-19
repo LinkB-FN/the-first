@@ -1,11 +1,16 @@
 import { useState } from "react"
+import { useParams } from 'react-router-dom'
 import './Detalle.css'
+import peliculas from '../detalles.js'
 
 // Horarios de ejemplo para la función
 const HORARIOS = ['12:00', '14:30', '17:00', '19:30', '22:00']
 
 // Vista de detalle de una película
-function Detalle({ pelicula }) {
+function Detalle() {
+  const { id } = useParams()
+  const pelicula = peliculas.find(p => p.id === parseInt(id))
+
 
   // Estados para el formulario de compra
   const [nombre, setNombre] = useState("")
