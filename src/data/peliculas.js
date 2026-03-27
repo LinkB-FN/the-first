@@ -1,9 +1,8 @@
-import devImg from './assets/image/Nexus.png';
-import imageImg from './assets/image/Peely.png';
-import primal from './assets/image/primal.png';
-import yuki from './assets/image/yuki.png';
-import war from './assets/image/war.png';
-
+import devImg from '../assets/image/Nexus.png';
+import imageImg from '../assets/image/Peely.png';
+import primal from '../assets/image/primal.png';
+import yuki from '../assets/image/yuki.png';
+import war from '../assets/image/war.png';
 
 const peliculas = [
   {

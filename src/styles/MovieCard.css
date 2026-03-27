@@ -1,0 +1,198 @@
+.movie-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.movie-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.movie-image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background: gray;
+}
+
+.movie-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-icon {
+  font-size: 5rem;
+  opacity: 0.3;
+}
+
+.movie-rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffd700;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.movie-info {
+  padding: 1.5rem;
+}
+
+.movie-title {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.movie-genre {
+  color: #666;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.movie-duration {
+  color: #888;
+  margin: 0.5rem 0 1rem 0;
+  font-size: 0.9rem;
+}
+
+.movie-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.movie-actions .btn {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Botón de favorito */
+.favorito-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.favorito-btn:hover {
+  transform: scale(1.15);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.favorito-btn.favorito-activo {
+  background: rgba(255, 80, 80, 0.25);
+}
+
+/* Panel de horarios */
+.horarios-panel {
+  background: #f0f4ff;
+  border: 1.5px solid #c5cae9;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 0.75rem;
+}
+
+.horarios-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #3949ab;
+  margin: 0 0 8px 0;
+}
+
+.horarios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.horario-btn {
+  padding: 5px 12px;
+  border: 1.5px solid #9fa8da;
+  border-radius: 20px;
+  background: #fff;
+  color: #3949ab;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.horario-btn:hover {
+  background: #e8eaf6;
+  border-color: #3949ab;
+}
+
+.horario-btn.horario-activo {
+  background: #3949ab;
+  color: #fff;
+  border-color: #3949ab;
+}
+
+.horario-seleccionado {
+  font-size: 0.8rem;
+  color: #2e7d32;
+  margin: 4px 0 0 0;
+}
+
+/* Toggle descripción */
+.movie-description-section {
+  margin-bottom: 0.75rem;
+}
+
+.toggle-desc-btn {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  color: #555;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.toggle-desc-btn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.movie-description {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+  background: #f9f9f9;
+  border-left: 3px solid #ff9800;
+  padding: 8px 10px;
+  border-radius: 0 6px 6px 0;
+}

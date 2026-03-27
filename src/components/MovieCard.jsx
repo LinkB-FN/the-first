@@ -1,20 +1,14 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from './Button'
-import './MovieCard.css'
+import '../styles/MovieCard.css';
 
-// Horarios de ejemplo compartidos para todas las películas
 const HORARIOS_DISPONIBLES = ['12:00', '14:30', '17:00', '19:30', '22:00']
 
 function MovieCard({ id, title, genre, duration, rating, image, description, esFavorito, onToggleFavorito }) {
   const navigate = useNavigate()
-  // Estado para mostrar u ocultar la descripción de la película
   const [mostrarDescripcion, setMostrarDescripcion] = useState(false)
-
-  // Estado para mostrar u ocultar el panel de horarios
   const [mostrarHorarios, setMostrarHorarios] = useState(false)
-
-  // Estado para el horario seleccionado
   const [horarioElegido, setHorarioElegido] = useState(null)
 
   return (
@@ -29,7 +23,6 @@ function MovieCard({ id, title, genre, duration, rating, image, description, esF
         )}
         <div className="movie-rating">{rating}</div>
 
-        {/* Botón de favorito (solo si se pasa la función) */}
         {onToggleFavorito && (
           <button
             className={`favorito-btn ${esFavorito ? 'favorito-activo' : ''}`}
@@ -46,7 +39,6 @@ function MovieCard({ id, title, genre, duration, rating, image, description, esF
         <p className="movie-genre">{genre}</p>
         <p className="movie-duration">⏱️ {duration}</p>
 
-        {/* Interacción: Mostrar/Ocultar descripción con useState */}
         {description && (
           <div className="movie-description-section">
             <button
@@ -61,7 +53,6 @@ function MovieCard({ id, title, genre, duration, rating, image, description, esF
           </div>
         )}
 
-        {/* Panel de horarios: se muestra al hacer click en "Ver Horarios" */}
         {mostrarHorarios && (
           <div className="horarios-panel">
             <p className="horarios-label">🕐 Selecciona un horario:</p>

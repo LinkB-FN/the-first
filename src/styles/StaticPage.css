@@ -1,0 +1,25 @@
+.static-page {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.static-page h1 {
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.static-page p {
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.contact-info {
+  background-color: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  margin-top: 10px;
+}

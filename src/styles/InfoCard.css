@@ -1,0 +1,41 @@
+.info-card {
+  background-color: #f2e1e1;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.info-card:hover {
+  background-color: #ffffff;
+  border-color: #ffea00;
+}
+
+.info-card-title {
+  font-size: 1.5rem;
+  color: #1d3ddf;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.info-card-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000000;
+  flex-grow: 1;
+}
+
+.info-card-cta {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+  align-self: flex-start;
+  transition: color 0.2s;
+}
+
+.info-card-cta:hover {
+  color: #e50914;
+}

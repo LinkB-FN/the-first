@@ -1,24 +1,20 @@
 import { useState } from "react"
 import { useParams } from 'react-router-dom'
-import './Detalle.css'
-import peliculas from '../detalles.js'
+import '../styles/Detalle.css';
+import peliculas from '../data/peliculas.js';
 
-// Horarios de ejemplo para la función
 const HORARIOS = ['12:00', '14:30', '17:00', '19:30', '22:00']
 
-// Vista de detalle de una película
 function Detalle() {
   const { id } = useParams()
   const pelicula = peliculas.find(p => p.id === parseInt(id))
 
 
-  // Estados para el formulario de compra
   const [nombre, setNombre] = useState("")
   const [cantidadBoletos, setCantidadBoletos] = useState(1)
   const [horarioSeleccionado, setHorarioSeleccionado] = useState("")
   const [mensaje, setMensaje] = useState("")
 
-  // En el caso que no se seleccione ninguna película
   if (!pelicula) {
     return (
       <main className="detalle-vacio">
@@ -29,11 +25,9 @@ function Detalle() {
     )
   }
 
-  // Precio por boleto
   const PRECIO_BOLETO = 95
   const subtotal = cantidadBoletos * PRECIO_BOLETO
 
-  // Evento submit/enviar (onSubmit)
   function manejarCompra(e) {
     e.preventDefault()
     setMensaje(

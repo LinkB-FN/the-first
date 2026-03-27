@@ -1,6 +1,6 @@
 import MovieCard from "../components/MovieCard";
 import MovieCarousel from "../components/MovieCarousel";
-import peliculas from "../detalles.js";
+import peliculas from "../data/peliculas.js";
 
 function Home() {
 

@@ -1,5 +1,4 @@
-import React from 'react';
-import './InfoCard.css';
+import '../styles/InfoCard.css';
 
 function InfoCard({ title, description, ctaText, ctaLink = '#' }) {
   return (

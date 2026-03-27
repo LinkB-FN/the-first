@@ -1,16 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from './Button';
-import './FoodCard.css';
+import '../styles/FoodCard.css';
 
 function FoodCard({ name, description, price, image, category, onAgregar }) {
-  // Estado local para mostrar confirmación visual al agregar
   const [agregado, setAgregado] = useState(false)
 
-  // Maneja el click de "Agregar" (onClick)
   function handleAgregar() {
     if (onAgregar) onAgregar()
     setAgregado(true)
-    // Regresa al estado normal después de 1.5 segundos
     setTimeout(() => setAgregado(false), 1500)
   }
 

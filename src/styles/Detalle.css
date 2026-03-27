@@ -1,0 +1,250 @@
+/* ── Página de detalle ── */
+.detalle-page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 0 3rem 0;
+  background: #fff;
+}
+
+/* Estado vacío */
+.detalle-vacio {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #666;
+}
+
+.detalle-vacio-icon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.detalle-vacio h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Hero ── */
+.detalle-hero {
+  position: relative;
+  width: 100%;
+  max-height: 480px;
+  overflow: hidden;
+  border-radius: 0 0 16px 16px;
+}
+
+.detalle-hero-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.65);
+}
+
+.detalle-hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+}
+
+.detalle-titulo {
+  font-size: 2.4rem;
+  color: #fff;
+  margin: 0 0 0.75rem 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  line-height: 1.2;
+}
+
+.detalle-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge {
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.badge-genero {
+  background: rgba(255, 152, 0, 0.9);
+  color: #fff;
+}
+
+.badge-duracion {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+}
+
+.badge-rating {
+  background: rgba(255, 215, 0, 0.9);
+  color: #333;
+}
+
+/* ── Secciones internas ── */
+.detalle-descripcion,
+.detalle-compra {
+  padding: 2rem 2.5rem;
+}
+
+.detalle-descripcion {
+  border-bottom: 1px solid #eee;
+}
+
+.detalle-seccion-titulo {
+  font-size: 1.4rem;
+  color: #222;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.detalle-sinopsis {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ── Formulario de compra ── */
+.compra-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.compra-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.compra-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.compra-field input,
+.compra-field select {
+  padding: 11px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #222;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.compra-field input:focus,
+.compra-field select:focus {
+  border-color: #ff9800;
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.15);
+  background: #fff;
+}
+
+/* Resumen de precio */
+.compra-resumen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff8f0;
+  border: 1.5px solid #ffe0b2;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  color: #555;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.compra-total {
+  font-size: 1.1rem;
+  color: #e65100;
+}
+
+/* Botón de compra */
+.compra-btn {
+  padding: 13px 28px;
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(255, 152, 0, 0.35);
+  align-self: flex-start;
+}
+
+.compra-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.45);
+}
+
+.compra-btn:active {
+  transform: translateY(0);
+}
+
+/* Confirmación */
+.compra-confirmacion {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border: 1.5px solid #66bb6a;
+  border-radius: 10px;
+  color: #2e7d32;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.compra-confirmacion-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.compra-confirmacion p {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .detalle-titulo {
+    font-size: 1.6rem;
+  }
+
+  .detalle-descripcion,
+  .detalle-compra {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .detalle-hero-img {
+    height: 320px;
+  }
+
+  .compra-resumen {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .compra-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
